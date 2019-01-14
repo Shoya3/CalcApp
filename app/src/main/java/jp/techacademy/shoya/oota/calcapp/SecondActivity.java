@@ -18,30 +18,27 @@ public class SecondActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String value3 = intent.getStringExtra("VALUE3");
 
-        if(value3=="+"){
-            int value1 = intent.getIntExtra("VALUE1", 0);
-            int value2 = intent.getIntExtra("VALUE2", 0);
+        String value1 = intent.getStringExtra("VALUE1");
+        String value2 = intent.getStringExtra("VALUE2");
 
-            TextView textView = (TextView) findViewById(R.id.textView);
-            textView.setText(String.valueOf(value1 + value2));
-        }else if(value3=="-"){
-            int value1 = intent.getIntExtra("VALUE1", 0);
-            int value2 = intent.getIntExtra("VALUE2", 0);
+        TextView textView = (TextView) findViewById(R.id.textView);
 
-            TextView textView = (TextView) findViewById(R.id.textView);
-            textView.setText(String.valueOf(value1 - value2));
-        }else if(value3=="*"){
-            int value1 = intent.getIntExtra("VALUE1", 0);
-            int value2 = intent.getIntExtra("VALUE2", 0);
+        double db1 = Double.parseDouble(value1);
+        double db2 = Double.parseDouble(value2);
 
-            TextView textView = (TextView) findViewById(R.id.textView);
-            textView.setText(String.valueOf(value1 * value2));
-        }else if(value3=="/"){
-            int value1 = intent.getIntExtra("VALUE1", 0);
-            int value2 = intent.getIntExtra("VALUE2", 0);
 
-            TextView textView = (TextView) findViewById(R.id.textView);
-            textView.setText(String.valueOf(value1 / value2));
+        if(value3.equals("+")){
+
+            textView.setText(String.valueOf(db1 + db2));
+        }else if(value3.equals("-")){
+
+            textView.setText(String.valueOf(db1 - db2));
+        }else if(value3.equals("*")){
+
+            textView.setText(String.valueOf(db1 * db2));
+        }else if(value3.equals("/")){
+
+            textView.setText(String.valueOf(db1 / db2));
         }
     }
 }
